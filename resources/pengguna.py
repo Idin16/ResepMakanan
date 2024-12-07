@@ -25,9 +25,9 @@ class Pengguna(Resource):
             cursor.execute("CALL RegisterPengguna(%s,%s,%s)", (nama,namaemail,privatepassword))
         except Exception as e:
             error_message = str(e)
-            if 'Resep tidak ditemukan' in error_message:
+            if 'Username sudah digunakan' in error_message:
                 return jsonify({'message': f'Username {nama} sudah digunakan.'})
-            elif 'Pengguna tidak ditemukan' in error_message:
+            elif 'Email sudah digunakan' in error_message:
                 return jsonify({'message': f'Email {namaemail} sudah digunakan.'})
             else:
                 return jsonify({'message': 'SystemError'})

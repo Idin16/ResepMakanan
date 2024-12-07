@@ -33,7 +33,7 @@ class KomentarRating(Resource):
             else:
                 return jsonify({'message': 'SystemError'})
 
-        return jsonify({'message': f'Komentar pada resep {nama} berhasil ditambahkan'})
+        return jsonify({'message': f'Komentar anda pada resep {nama} berhasil ditambahkan'})
     
     def delete(self):
         data = request.json
